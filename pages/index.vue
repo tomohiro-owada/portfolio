@@ -9,6 +9,11 @@
     :index="index"
     @change-history-by-index="changeHistoryByIndex"
   />
+  <Tutorial
+    v-if="needTutorial"
+    @change-history="changeHistory"
+    @finish-tutorial="finishTutorial"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -20,6 +25,7 @@ useSeoMeta({
     "I'm Tomo, a software engineer specializing in designing and building scalable web systems. From architecture to development, I create solutions that power modern businesses.",
 });
 
+const needTutorial = ref(false);
 const index = ref(30);
 const mapDetails = ref<History>(histories[index.value]);
 const lines = histories.map((history) => {
@@ -28,6 +34,12 @@ const lines = histories.map((history) => {
     color: history.color,
   };
 });
+
+const finishTutorial = () => {
+  index.value = 0;
+  needTutorial.value = false;
+};
+
 const changeHistory = (value: number) => {
   if (index.value + value < 0 || index.value + value >= histories.length) {
     return;
@@ -45,6 +57,12 @@ const changeHistoryByIndex = (i: number) => {
 };
 
 onMounted(() => {
+  const finishTutorial = Boolean(localStorage.getItem("tutorial"));
+  console.log(typeof finishTutorial, finishTutorial);
+  if (!finishTutorial) {
+    needTutorial.value = true;
+  }
+
   window.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
       changeHistory(-1);

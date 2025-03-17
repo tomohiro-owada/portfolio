@@ -11,11 +11,9 @@
 
 <script lang="ts" setup>
 const emit = defineEmits(["changeHistory"]);
-
-// PC表示時のみボタンを表示する
 const isMobile = ref(false);
-const startX = ref(0); // 基準となるX位置
-const currentX = ref(0); // 現在のX位置
+const startX = ref(0);
+const currentX = ref(0);
 
 onMounted(() => {
   isMobile.value = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -31,10 +29,7 @@ onMounted(() => {
     const diff = currentX.value - startX.value;
 
     if (Math.abs(diff) >= 30) {
-      // 進んだ方向を判定して emit
       emit("changeHistory", diff > 0 ? -1 : 1);
-
-      // 基準点を現在位置にリセットして、再度距離を測る
       startX.value = currentX.value;
     }
   };
@@ -65,17 +60,14 @@ onMounted(() => {
   right: 0;
   display: flex;
   gap: 10px;
-  background-color: rgba(60, 60, 60, 0.1);
   color: white;
-
-  height: 82%;
+  height: 100svh;
 }
 
 .isMobile {
   height: 100svh !important;
 }
 
-/* buttonを左右に配置する */
 button {
   flex: 1;
   font-size: 2rem;
@@ -83,16 +75,18 @@ button {
   border: none;
   color: white;
   cursor: pointer;
-  /* 文字を透過する */
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 0.4);
+  height: 100%;
 }
 .left {
   text-align: left;
-  padding-left: 10px;
+  padding-left: 32px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
 }
 .right {
   text-align: right;
-  padding-right: 10px;
+  padding-right: 32px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
 }
 button:hover {
   background-color: rgba(100, 100, 100, 0.1);

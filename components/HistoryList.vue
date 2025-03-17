@@ -87,8 +87,10 @@ const getStyleByIndex = (itemIndex = 0) => {
     width: `${finalSize}rem`,
     height: `${finalSize}rem`,
     fontSize: `${finalSize * 0.3}rem`,
-    lineHeight: `${finalSize * 0.3}rem`,
+    lineHeight: `${finalSize * 0.25}rem`,
     backgroundColor: props.histories[itemIndex].color,
+    border: `2px solid white`,
+    dropShadow: `0 0 10px rgba(0, 0, 0, 0.5)`,
   };
 };
 
