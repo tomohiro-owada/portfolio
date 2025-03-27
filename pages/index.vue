@@ -1,14 +1,17 @@
 <template>
-  <Controller @change-history="changeHistory" />
-  <ClientOnly>
-    <LeafLet :map-details="mapDetails" :lines="lines" :index="index" />
-  </ClientOnly>
-  <!-- <Event :details="mapDetails" /> -->
   <HistoryList
     :histories="histories"
     :index="index"
     @change-history-by-index="changeHistoryByIndex"
   />
+  <Controller @change-history="changeHistory" />
+  <ClientOnly>
+    <LeafLet :map-details="mapDetails" :lines="lines" :index="index" />
+  </ClientOnly>
+  <!-- <Event :details="mapDetails" /> -->
+
+  <MainContent :histories="histories" :index="index" />
+
   <Tutorial
     v-if="needTutorial"
     @change-history="changeHistory"

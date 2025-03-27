@@ -131,6 +131,7 @@ const month = [
 }
 
 .histories {
+  z-index: 9999;
   position: fixed;
   bottom: -48px;
   left: 0;

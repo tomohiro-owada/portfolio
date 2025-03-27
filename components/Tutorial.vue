@@ -17,7 +17,6 @@
 
 <script lang="ts" setup>
 const isMobile = ref(false);
-
 const step = ref(0);
 const emit = defineEmits(["change-history", "finish-tutorial"]);
 const nextStep = (n: number) => {
@@ -74,7 +73,7 @@ onMounted(() => {
   align-items: center;
   font-size: 2rem;
   text-shadow: 1px 1px 1px white;
-  color: white;
+  color: black;
 }
 
 .left img {

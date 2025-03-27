@@ -53,7 +53,7 @@ onMounted(() => {
 
 <style scoped>
 .controller {
-  z-index: 1000;
+  z-index: 888;
   position: absolute;
   width: 100%;
   top: 0;
@@ -69,29 +69,35 @@ onMounted(() => {
 }
 
 button {
+  border: none;
+  outline: none;
+
   flex: 1;
   font-size: 2rem;
   background-color: transparent;
   border: none;
-  color: white;
+  color: Gray;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
   height: 100%;
 }
 .left {
   text-align: left;
   padding-left: 32px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75);
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
 }
 .right {
   text-align: right;
   padding-right: 32px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
-}
-button:hover {
-  background-color: rgba(100, 100, 100, 0.1);
-}
-button:active {
-  background-color: rgba(100, 100, 100, 0.2);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
 }
 </style>
