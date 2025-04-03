@@ -7,10 +7,10 @@
   </div>
   <div class="tutorial" v-if="!isMobile">
     <div class="left" v-if="step === 0" @click="nextStep(-1)">
-      <NuxtImg src="/img/click.png" width="200" height="200" />
+      <img src="/img/click.png" width="200" height="200" />
     </div>
     <div class="right" v-if="step === 1" @click="nextStep(1)">
-      <NuxtImg src="/img/click.png" width="200" height="200" />
+      <img src="/img/click.png" width="200" height="200" />
     </div>
   </div>
 </template>
