@@ -7,4 +7,8 @@ export default defineNuxtConfig({
   leaflet: {
     markerCluster: true,
   },
+
+  image: {
+    provider: "static", // ← 追加！
+  },
 });
